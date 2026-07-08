@@ -7,8 +7,9 @@ from pathlib import Path
 
 def load_model():
     model=ResNet18()
-    MODEL_PATH = Path(__file__).resolve().parent / "waste_classifier.pth"
-    model.load_state_dict(torch.load(MODEL_PATH))
+    model.load_state_dict(
+    torch.load("waste_classifier.pth", map_location=torch.device("cpu"))
+)
     model.eval()
     return model
 
