@@ -2,7 +2,9 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 from model import ResNet18
-from dataset import train_loader,test_loader
+from dataset import get_dataloaders
+
+train_loader, test_loader = get_dataloaders()
 model=ResNet18()
 loss_function=nn.CrossEntropyLoss()
 optimizer = torch.optim.AdamW(
